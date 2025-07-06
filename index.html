@@ -1,29 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Weather Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 </head>
-<body class ="bg-blue-100 ">
-    <div id="container" class="max-w-4xl mx-auto  bg-white shadow-md rounded-lg p-6 mt-10">
-        <h1 class="text-3xl font-bold text-center mb-6">Weather Dashboard</h1>
-        <form id="search-form" class="mb-6">
-            <div class="flex items-center justify-center">
-                <input type="text" id="city-input" placeholder="Enter city name" class="border border-gray-300 rounded-l-lg p-2 w-1/2 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                <button type="submit" class="bg-blue-500 text-white rounded-r-lg px-4 py-2 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                    <i class="fa fa-search"></i> Search
-                </button>
-            </div>
-        </form>
-        <div class="flex justify-center mb-6">
-            <button id="current-location-btn" class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                <i class="fa fa-map-marker"></i> Use Current Location
-            </button>
-        </div>
+<body class="bg-blue-100">
+  <div id="container" class="max-w-4xl mx-auto bg-white shadow-md rounded-lg p-6 mt-10">
+    <h1 class="text-3xl font-bold text-center mb-6">Weather Dashboard</h1>
+    
+    <!-- Search Form -->
+    <form id="search-form" class="mb-6">
+      <div class="flex items-center justify-center">
+        <input type="text" id="city-input" placeholder="Enter city name"
+          class="border border-gray-300 rounded-l-lg p-2 w-1/2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+        <button type="submit"
+          class="bg-blue-500 text-white rounded-r-lg px-4 py-2 hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
+          <i class="fa fa-search"></i> Search
+        </button>
+      </div>
+    </form>
 
+    <!-- Current Location Button -->
+    <div class="flex justify-center mb-6">
+      <button id="current-location-btn"
+        class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
+        <i class="fa fa-map-marker"></i> Use Current Location
+      </button>
     </div>
+
+    <!-- Recent Searches Dropdown -->
+    <div id="recent-container" class="mb-4 hidden flex flex-col items-center">
+      <label class="block text-xl font-semibold mb-1">Recent Search:</label>
+      <select id="recent-dropdown"
+        class="w-full md:w-1/2 border border-gray-300 p-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"></select>
+    </div>
+  </div>
+
+  <!-- Current Weather Info -->
+  <div id="current-info" class="max-w-4xl mx-auto bg-white shadow-md rounded-lg p-6 mb-6 mt-4 hidden">
+    <h2 id="citydate" class="text-xl font-semibold mb-2"></h2>
+    <p id="temperature"></p>
+    <p id="wind"></p>
+    <p id="humidity"></p>
+    <p id="description" class="mt-2"></p>
+  </div>
+
+  <!-- Forecast Cards -->
+  <div id="forecast-container" class="max-w-4xl mx-auto bg-white shadow-md rounded-lg p-6 mb-6 hidden">
+    <h2 class="text-xl font-semibold mb-4">5-Day Forecast</h2>
+    <div id="forecast" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4"></div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
